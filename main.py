@@ -6,6 +6,7 @@ from flask import Flask, render_template, request, redirect, jsonify, \
 # from sqlalchemy.orm import sessionmaker
 # from sqlalchemy.ext.serializer import loads, dumps
 
+
 # from database_setup import Base, Things
 
 import random
