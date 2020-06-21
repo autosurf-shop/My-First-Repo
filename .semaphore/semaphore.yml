@@ -23,4 +23,4 @@ blocks:
             - sudo chmod +x chromedriver
             - git clone https://github.com/rixterx1/My-First-Repo.git
             - ls
-            - python3 /My-First-Repo/script.py
+            - python3 My-First-Repo/script.py
