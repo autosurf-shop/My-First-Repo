@@ -1,14 +1,67 @@
 version: v1.0
-name: Initial Pipeline
+name: Docker
 agent:
   machine:
     type: e1-standard-4
     os_image: ubuntu1804
-execution_time_limit:
-  hours: 2
-
 blocks:
-  - name: 'Block #1'
+  - name: Build
+    task:
+      jobs:
+        - name: Build
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+        - name: 'Job #2'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+        - name: 'Job #3'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+        - name: 'Job #4'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+    dependencies: []
+  - name: 'Block #2'
     task:
       jobs:
         - name: 'Job #1'
@@ -24,3 +77,52 @@ blocks:
             - git clone https://github.com/rixterx1/My-First-Repo.git
             - ls
             - python3 My-First-Repo/script.py
+        - name: 'Job #2'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+        - name: 'Job #3'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+        - name: 'Job #4'
+          commands:
+            - sudo apt update
+            - sudo apt install python3 python3-pip wget unzip -y
+            - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+            - sudo apt install ./google-chrome-stable_current_amd64.deb -y
+            - pip3 install selenium
+            - wget https://chromedriver.storage.googleapis.com/83.0.4103.39/chromedriver_linux64.zip
+            - unzip chromedriver_linux64.zip
+            - sudo chmod +x chromedriver
+            - git clone https://github.com/rixterx1/My-First-Repo.git
+            - ls
+            - python3 My-First-Repo/script.py
+    dependencies: []
+  - name: 'Block #3'
+    dependencies:
+      - 'Block #2'
+      - Build
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - checkout
