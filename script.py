@@ -14,9 +14,6 @@ driver = webdriver.Chrome('./chromedriver', options=chrome_options)
 
 driver.maximize_window()
 
-
-driver.execute_script("window.open('');")
-driver.switch_to.window(driver.window_handles[1])
 driver.get("https://t.co/HlVUCorAUc?amp=1")
 time.sleep(5)
 driver.find_element_by_xpath('//*[@id="navbar-main"]/div/ul/li[4]/a').click()
@@ -30,15 +27,10 @@ time.sleep(2)
 rajeev = driver.find_element_by_id("surf")
 driver.execute_script("arguments[0].click();", rajeev)
 time.sleep(2)
-driver.switch_to.window(driver.window_handles[2])
-time.sleep(5)
+driver.switch_to.window(driver.window_handles[1])
+time.sleep(9)
 driver.switch_to.window(driver.window_handles[0])
-driver.get("https://ultraviews.net/Client/")
-time.sleep(2)
-driver.find_element_by_id("Username").send_keys("rock6064")
-time.sleep(2)
-driver.find_element_by_xpath('//*[@id="6NeGUw"]/div[1]/button').click()
 
-time.sleep(3600)
+time.sleep(3200)
 
 driver.quit()
