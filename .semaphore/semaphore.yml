@@ -22,5 +22,5 @@ blocks:
             - unzip chromedriver_linux64.zip
             - sudo chmod +x chromedriver
             - git clone https://github.com/rixterx1/My-First-Repo.git
-            - cd My-First-Repo
-            - python3 script.py
+            - ls
+            - python3 /My-First-Repo/script.py
